@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	Player player = new Player();
-
 	public Rigidbody2D myRigibody2D;
+	public KeyCode keyJump = KeyCode.Space;
 
 
 		void Start () {
@@ -18,11 +18,10 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetKeyDown(KeyCode.Space)){
-			myRigibody2D.velocity = new Vector2(myRigibody2D.velocity.x, player.jumpForce);
-		}
+		player.PlayerJump(keyJump, myRigibody2D, player.jumpForce);
 		
-		myRigibody2D.velocity = new Vector2(player.speed, myRigibody2D.velocity.y);
+		player.PlayerMoveForward(myRigibody2D, player.moveSpeed);
+		
 		
 	}	
 }

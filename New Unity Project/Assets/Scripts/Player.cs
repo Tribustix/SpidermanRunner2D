@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,21 +7,30 @@ using UnityEngine.SceneManagement;
 public class Player{
 
 	public float  jumpForce;
-	public float speed;
-	public string secene;
-
+	public float moveSpeed;
+	public string scene;
 
 	public Player(){
 		jumpForce = 20f;
-		speed = 5f;
+		moveSpeed = 5f;
 	}
 
-	public Player(float jumpForce, float speed){
+	public Player(float jumpForce, float moveSpeed){
 		this.jumpForce = jumpForce;
-		this.speed = speed;
+		this.moveSpeed = moveSpeed;
 	}
 
-	void playerDeath(string scene){
+    public void PlayerDeath(string scene){
 		SceneManager.LoadScene(scene);
+	}
+
+	public void PlayerJump(KeyCode key, Rigidbody2D rigidBody2D, float jumpForce){
+		if(Input.GetKeyDown(KeyCode.Space)){
+			rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, jumpForce);
+		}
+	}
+
+	public void PlayerMoveForward(Rigidbody2D rigidbody2D, float moveSpeed){
+		rigidbody2D.velocity = new Vector2(moveSpeed, rigidbody2D.velocity.y);
 	}
 }
