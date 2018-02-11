@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public KeyCode keyJump = KeyCode.Space;
 
 
-		void Start () {
+	void Start () {
 
 			myRigibody2D = GetComponent<Rigidbody2D>();
 		
@@ -24,4 +24,18 @@ public class PlayerController : MonoBehaviour {
 		
 		
 	}	
+
+	 void OnTriggerEnter2D(Collider2D collision) {
+		
+		 if(collision.CompareTag("ItemGood")){
+			 Debug.Log("Punto Positivo!!");
+
+		 }else if(collision.CompareTag("ItemBad")){
+			 Debug.Log("Punto Negativo!!");
+		 }else{
+			 Debug.Log("Cambio de Apariencia");
+		 }
+
+
+	}
 }

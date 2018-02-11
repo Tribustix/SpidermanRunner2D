@@ -10,7 +10,7 @@ public class SpawnManagerController : MonoBehaviour {
 	public float maxTime = 2f;
 
 	 void Start() {
-		 StartCoroutine(SpawnCoroutine(0));
+		 StartCoroutine(SpawnCoroutine((Random.Range(minTime, maxTime))));
 	}
 
 	IEnumerator SpawnCoroutine(float waitTime){
