@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+	//This variable stores the text of the score
 	public Text scoreText;
+	//This variable stores the score points
 	public int playerScore;
 	public void AddScore(){
 

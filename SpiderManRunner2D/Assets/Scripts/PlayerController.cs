@@ -5,19 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+	//These variables allow us to access to Player components
 	Player player = new Player();
 	public Rigidbody2D myRigibody2D;
+	//This variable sets the keyboard of the key to jump
 	public KeyCode keyJump = KeyCode.Space;
 
+	//This variable sets the level to load
 	public string scene = "level2D";
 
+	//This variable allow us to access to GameManager components
 	private GameManager gameManager;
+	//This variable allow us to access to Spawn Manager components
 	private SpawnManager[] spawnManager;
+	//These variables stores Spawn Manager max and min values of time
 	private float[] intervalMaxValues;
 	private float[] intervalMinValues;
 	
+	//These variables sets Sprites
 	public Sprite superiorSpiderman;
 	public Sprite basicSpiderman;
+
 
 	void Start () {
 
@@ -61,6 +69,7 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	//This method sets back player's speed, sprite and return Spawn Manager to Original values
 	public IEnumerator BackToRegularStats(Player player){
 		 	yield return new WaitForSeconds(15);
 		    player.BacktoNormalSpeed();
@@ -68,6 +77,9 @@ public class PlayerController : MonoBehaviour {
 			changeSpriteAvatar(basicSpiderman);
 	}
 
+	/*This method decreases the max and min values from Spawn Manager, keeping the speed of the game 
+	  proportional to generate platforms and items when the player goes faster
+	*/ 
 	public void DecreaseSpawnGeneratorsTimes(SpawnManager[] spawnManager){
 		for(int i =0; i<spawnManager.Length; i++){
 			spawnManager[i].intervalMinTime=spawnManager[i].DecreasePlatformTime(spawnManager[i].intervalMinTime, 2);
@@ -77,13 +89,14 @@ public class PlayerController : MonoBehaviour {
 			 }
 	}
 
+	//This method fills arrays to store max and min time values from spawn manager
 	public void FillTimeValues(SpawnManager[] spawnManager, float[] intervalMaxValues, float[] intervalMinValues){
 		for(int i = 0; i<spawnManager.Length; i++ ){
 			intervalMaxValues[i] = spawnManager[i].intervalMaxTime;
 			intervalMinValues[i] = spawnManager[i].intervalMinTime;
 		}
 	}
-
+	//This method put the original values of max and min time of spawn manager
 	public void BackToTimeOriginalValues(SpawnManager[] spawnManager, float[] intervalMaxValues, float[] intervalMinValues){
 		for(int i = 0; i<spawnManager.Length; i++ ){
 			spawnManager[i].intervalMaxTime = intervalMaxValues[i];
@@ -91,6 +104,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	//This methos changes the sprite of the player
 	public void changeSpriteAvatar(Sprite spiderman){
 		this.GetComponent<SpriteRenderer>().sprite = spiderman;
 	}

@@ -9,7 +9,6 @@ public class Camera2DController : MonoBehaviour {
 	private float positionY = 0f;
 	private float positionZ = -10f;
 
-	// Use this for initialization
 	void Start () {
 
 		if(targetPlayer == null){
@@ -17,7 +16,6 @@ public class Camera2DController : MonoBehaviour {
 		}
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		transform.position = new Vector3(targetPlayer.position.x + positionX, positionY, positionZ);
 	}
