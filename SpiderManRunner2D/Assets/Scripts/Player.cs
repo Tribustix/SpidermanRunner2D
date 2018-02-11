@@ -15,12 +15,14 @@ public class Player{
 	public float maxSpeed;
 	// Variable to set the scene that we want to load
 	public string scene;
+	public bool roleChanged;
 
 	//Constructors
 	public Player(){
 		jumpForce = 20f;
 		moveSpeed = 6f;
 		maxSpeed = 9f;
+		roleChanged = false;
 	}
 
 	public Player(float jumpForce, float moveSpeed){

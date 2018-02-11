@@ -51,14 +51,15 @@ public class PlayerController : MonoBehaviour {
 		
 		 if(collision.CompareTag("ItemGood")){
 			 Destroy(collision.gameObject);
-			 gameManager.AddScore();
+			 gameManager.AddScore(player);
 		 }else if(collision.CompareTag("ItemBad")){
 			 Destroy(collision.gameObject);
-			 gameManager.MinusScore();
+			 gameManager.MinusScore(player);
 		 }else if(collision.CompareTag("DeathZone")){
 			 player.PlayerDeath(scene);
 		 }else{
 			 Destroy(collision.gameObject);
+			 player.roleChanged = true;
 			 DecreaseSpawnGeneratorsTimes(spawnManager);
 			 player.IncreaseSpeed();
 			 StartCoroutine(BackToRegularStats(player));
@@ -69,12 +70,14 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	//This method sets back player's speed, sprite and return Spawn Manager to Original values
+	//This method sets back player's speed, sprite, role and return Spawn Manager to Original values
 	public IEnumerator BackToRegularStats(Player player){
-		 	yield return new WaitForSeconds(15);
+		 	yield return new WaitForSeconds(25);
 		    player.BacktoNormalSpeed();
 			BackToTimeOriginalValues(spawnManager, intervalMaxValues, intervalMinValues);
 			changeSpriteAvatar(basicSpiderman);
+			player.roleChanged = false;
+
 	}
 
 	/*This method decreases the max and min values from Spawn Manager, keeping the speed of the game 

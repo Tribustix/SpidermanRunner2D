@@ -9,18 +9,33 @@ public class GameManager : MonoBehaviour {
 	public Text scoreText;
 	//This variable stores the score points
 	public int playerScore;
-	public void AddScore(){
-
+	public void AddScore(Player player){
+		if(CheckRoleChanged(player) && playerScore>0){
+			playerScore--;
+		}else{
 		playerScore++;
+		}
+		
 		scoreText.text = playerScore.ToString();
 	}
 
-	public void MinusScore(){
-
-		if(playerScore>0){
-		playerScore--;
+	public void MinusScore(Player player){
+		if(CheckRoleChanged(player)){
+			playerScore++;
+		}else{
+		 if(playerScore>0){
+			playerScore--;
+			}
 		}
+		
 		scoreText.text = playerScore.ToString();
+	}
+
+	public bool CheckRoleChanged(Player player){
+		if(player.roleChanged){
+			return true;
+		}
+		return false;
 	}
 
 }
