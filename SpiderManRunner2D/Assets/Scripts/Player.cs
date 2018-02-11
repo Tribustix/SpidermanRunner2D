@@ -12,7 +12,7 @@ public class Player{
 
 	public Player(){
 		jumpForce = 20f;
-		moveSpeed = 5f;
+		moveSpeed = 7f;
 	}
 
 	public Player(float jumpForce, float moveSpeed){
