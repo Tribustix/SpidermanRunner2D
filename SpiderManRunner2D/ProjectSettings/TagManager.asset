@@ -12,6 +12,7 @@ TagManager:
   - ItemGenerator
   - DeathZone
   - GarbageCollector
+  - ItemChangeGenerator
   layers:
   - Default
   - TransparentFX

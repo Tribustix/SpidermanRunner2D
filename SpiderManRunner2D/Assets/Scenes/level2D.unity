@@ -1200,7 +1200,7 @@ Prefab:
         type: 2}
     - target: {fileID: 1052499383343242, guid: 2ea83c1c352f9024eb9982ded89e1e2c, type: 2}
       propertyPath: m_TagString
-      value: ItemGenerator
+      value: ItemChangeGenerator
       objectReference: {fileID: 0}
     - target: {fileID: 114451634603242528, guid: 2ea83c1c352f9024eb9982ded89e1e2c,
         type: 2}
@@ -1555,7 +1555,7 @@ Prefab:
         type: 2}
     - target: {fileID: 1052499383343242, guid: 2ea83c1c352f9024eb9982ded89e1e2c, type: 2}
       propertyPath: m_TagString
-      value: ItemGenerator
+      value: ItemChangeGenerator
       objectReference: {fileID: 0}
     - target: {fileID: 114451634603242528, guid: 2ea83c1c352f9024eb9982ded89e1e2c,
         type: 2}
@@ -1921,7 +1921,7 @@ GameObject:
   - component: {fileID: 1924957268}
   m_Layer: 0
   m_Name: ItemChangeGenerator
-  m_TagString: ItemGenerator
+  m_TagString: ItemChangeGenerator
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1953,9 +1953,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPreFabs:
   - {fileID: 1514391147910842, guid: 993a8e228cc7ae84f834a6f5ce8a5b99, type: 2}
-  intervalMinTime: 60
-  intervalMaxTime: 15
-  intervalTimeLimit: 35
+  intervalMinTime: 15
+  intervalMaxTime: 60
+  intervalTimeLimit: 0
 --- !u!1 &1947953308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,7 +1968,7 @@ GameObject:
   - component: {fileID: 1947953310}
   m_Layer: 0
   m_Name: ItemChangeGenerator_2
-  m_TagString: ItemGenerator
+  m_TagString: ItemChangeGenerator
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2002,7 +2002,7 @@ MonoBehaviour:
   - {fileID: 1514391147910842, guid: 993a8e228cc7ae84f834a6f5ce8a5b99, type: 2}
   intervalMinTime: 20
   intervalMaxTime: 25
-  intervalTimeLimit: 1
+  intervalTimeLimit: 0
 --- !u!1001 &2010135482
 Prefab:
   m_ObjectHideFlags: 0

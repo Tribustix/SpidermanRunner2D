@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour {
 			 player.roleChanged = true;
 			 DecreaseSpawnGeneratorsTimes(spawnManager);
 			 player.IncreaseSpeed();
+			 StopAllCoroutines();
 			 StartCoroutine(BackToRegularStats(player));
 			 changeSpriteAvatar(superiorSpiderman);
 
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour {
 
 	//This method sets back player's speed, sprite, role and return Spawn Manager to Original values
 	public IEnumerator BackToRegularStats(Player player){
+
 		 	yield return new WaitForSeconds(25);
 		    player.BacktoNormalSpeed();
 			BackToTimeOriginalValues(spawnManager, intervalMaxValues, intervalMinValues);
